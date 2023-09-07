@@ -25,10 +25,6 @@ const keys = {
     universe_domain: process.env.UNIVERSE_DOMAIN,
   };  
 
-console.log("---------------------------------");
-console.log("Keys: ",keys);
-console.log("---------------------------------");
-
 //This allows us to parse the incoming request body as JSON
 app.use(express.json());
 
@@ -41,10 +37,6 @@ async function authSheets() {
         credentials: keys,
         scopes: ["https://www.googleapis.com/auth/spreadsheets"],
     });
-
-    console.log("---------------------------------");
-    console.log("Auth: ",auth);
-    console.log("---------------------------------");
 
     //Create client instance for auth
     const authClient = await auth.getClient();
@@ -71,10 +63,6 @@ app.get("/leaderboard", async (req, res) => {
             spreadsheetId: id,
             range: range,
         });
-
-        console.log("---------------------------------");
-        console.log("Rows: ",getRows);
-        console.log("---------------------------------");
 
         // Process the data and transform it into the desired format
         const transformedData = getRows.data.values.slice(1).map((row) => {
@@ -113,10 +101,6 @@ app.get("/leaderboard", async (req, res) => {
 
         // Sort the transformedData based on score in descending order
         transformedData.sort((a, b) => b.score - a.score);
-
-        console.log("---------------------------------");
-        console.log("Data: ",transformedData);
-        console.log("---------------------------------");
 
         res.json(transformedData);
     } catch (error) {

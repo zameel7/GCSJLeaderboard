@@ -93,6 +93,8 @@ This API provides leaderboard data for the Google Cloud Study Jam Cohort 1 condu
 
     - Then click on the + Enable APIs and Services button.
 
+    - Search for Google Sheets API and enable it
+
 - Step 3: Create a Service Account
 
     - Now that the API is enabled, it will direct you to a page where you can configure the settings for the API.

@@ -85,6 +85,7 @@ app.get("/leaderboard", async (req, res) => {
                 genAIGameCompleted,
                 totalCompletion,
                 redemptionStatus,
+                group
             ] = row;
 
             // Calculate the score
@@ -103,6 +104,7 @@ app.get("/leaderboard", async (req, res) => {
                 score,
                 isFinished,
                 hasRedeemed,
+                group
             };
         });
 
@@ -112,6 +114,72 @@ app.get("/leaderboard", async (req, res) => {
         res.json(transformedData);
     } catch (error) {
         console.error("Error in transforming data:", error);
+        res.status(500).send("Internal Server Error");
+    }
+});
+
+app.get("/group-scores", async (req, res) => {
+    try {
+        const { sheets } = await authSheets();
+
+        // Check if the secret key is provided in the request body
+        const { secret } = req.body;
+        if (secret !== process.env.API_SECRET) {
+            // If the provided secret key doesn't match, return an unauthorized response
+            return res.status(401).json({ error: "Unauthorized" });
+        }
+
+        // Specify the columns you want to retrieve, including the "Group" column
+        const range = "leaderboard";
+
+        // Read rows from the specified range
+        const getRows = await sheets.spreadsheets.values.get({
+            spreadsheetId: id,
+            range: range,
+        });
+
+        // Process the data and calculate group scores
+        const groupScores = {};
+
+        getRows.data.values.slice(1).forEach((row) => {
+            const [
+                name,
+                email,
+                institution,
+                enrolDate,
+                enrolStatus,
+                skillboostLink,
+                coursesCompleted,
+                skillBadgesCompleted,
+                genAIGameCompleted,
+                totalCompletion,
+                redemptionStatus,
+                group
+            ] = row;
+
+            // Calculate the score for this row
+            const score =
+                parseInt(coursesCompleted) +
+                parseInt(skillBadgesCompleted) +
+                parseInt(genAIGameCompleted);
+
+            // Create or update the group score
+            if (!groupScores[group]) {
+                groupScores[group] = 0;
+            }
+            groupScores[group] += score;
+        });
+
+        const sortedGroupScores = Object.keys(groupScores).map((group) => ({
+            group,
+            score: groupScores[group],
+        }));
+
+        // Sort the array by score in descending order
+        sortedGroupScores.sort((a, b) => b.score - a.score);
+        res.json(sortedGroupScores);
+    } catch (error) {
+        console.error("Error in calculating group scores:", error);
         res.status(500).send("Internal Server Error");
     }
 });

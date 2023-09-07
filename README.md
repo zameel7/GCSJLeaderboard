@@ -4,7 +4,9 @@
 
 ## Overview
 
-This API provides leaderboard data for the Google Cloud Study Jam Cohort 1 conducted from September 6, 2023, to October 2, 2023. It retrieves and formats data from Google Sheets to display the scores and progress of participants in the study jam.
+This API provides leaderboard data for the Google Cloud Study Jam Cohort 1 conducted from September 6, 2023, to October 2, 2023. It retrieves and formats data from Google Sheets to display the scores and progress of participants in the study jam. 
+
+> We have also added an additional column `Group` to the end of the sheet just to split the participants into groups
 
 ## Table of Contents
 
@@ -76,6 +78,29 @@ This API provides leaderboard data for the Google Cloud Study Jam Cohort 1 condu
      // ...
    ]
    ```
+
+- `/group-scores`: Retrieve the scores of groups in the Google Cloud Study Jam Cohort 1. The data includes group names and their total scores, sorted in descending order.
+Example Request:
+
+    ```http
+    GET /group-scores
+    ```
+
+    Example Response:
+
+    ```json
+    [
+      {
+        "group": "Group A",
+        "score": 100
+      },
+      {
+        "group": "Group B",
+        "score": 85
+      },
+      // ...
+    ]
+    ```
 
 ## Configuration
 

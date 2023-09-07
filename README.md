@@ -85,35 +85,35 @@ This API provides leaderboard data for the Google Cloud Study Jam Cohort 1 condu
 
 - Step 1: Create a New Project
 
-    First, open the Google Cloud Console, and then create a new project.
+    - First, open the Google Cloud Console, and then create a new project.
 
 - Step 2: Enable API and Services
 
-    At the top left, click Menu ☰ > APIs and Services > Enabled APIs and Services.
+    - At the top left, click Menu ☰ > APIs and Services > Enabled APIs and Services.
 
-    Then click on the + Enable APIs and Services button.
+    - Then click on the + Enable APIs and Services button.
 
 - Step 3: Create a Service Account
 
-    Now that the API is enabled, it will direct you to a page where you can configure the settings for the API.
+    - Now that the API is enabled, it will direct you to a page where you can configure the settings for the API.
 
-    In the left sidebar, click on the Credentials tab, and then click the Create Credentials button at the top.
+    - In the left sidebar, click on the Credentials tab, and then click the Create Credentials button at the top.
 
-    Next, select Service Account in the drop-down menu.
+    - Next, select Service Account in the drop-down menu.
 
-    In the next screen, provide the service account details required; then, click Create and Continue.
+    - In the next screen, provide the service account details required; then, click Create and Continue.
 
-    Click Continue and Done respectively on the next two dialogs.
+    - Click Continue and Done respectively on the next two dialogs.
 
-    Now, your newly created service account will be on the credentials page.
+    - Now, your newly created service account will be on the credentials page.
 
-    Copy the email address of the service account to the clipboard, as we'll need it later to share the spreadsheet with this account.
+    - Copy the email address of the service account to the clipboard, as we'll need it later to share the spreadsheet with this account.
 
-    You'll be directed to the next screen, where we'll create a new key. To do so, click on the Keys tab, and then click on the Add Key button.
+    - You'll be directed to the next screen, where we'll create a new key. To do so, click on the Keys tab, and then click on the Add Key button.
 
-    Select the Create New Key option, and then the key type of JSON.
+    - Select the Create New Key option, and then the key type of JSON.
 
-    Lastly, rename the downloaded JSON file as ```keys.json```, and move it into your project folder. This keyfile contains the credentials of the service account that we need in our Node.js script to access the spreadsheet from Google Sheets.
+    - Lastly, rename the downloaded JSON file as ```keys.json```, and move it into your project folder. This keyfile contains the credentials of the service account that we need in our Node.js script to access the spreadsheet from Google Sheets.
 
 > Reference: [Google Sheets API Tutorial: The Basics You Need to Get Going](https://stateful.com/blog/google-sheets-api-tutorial)
 
@@ -136,7 +136,7 @@ CLIENT_X509_CERT_URL=cert_url
 UNIVERSE_DOMAIN=googleapis.com
 ```
 
-> Find the ```SHEET_ID``` from the URL of your Google Sheet and the remaining from ```keys.json`` that you get while making a service account in Google cloud console
+> Find the ```SHEET_ID``` from the URL of your Google Sheet and the remaining from ```keys.json``` that you get while making a service account in Google cloud console
 
 ## Contributing
 
@@ -145,6 +145,3 @@ Contributions are welcome! Feel free to open issues or pull requests to improve 
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
-```
-
-Replace `zameel7` and `GCSJLeaderboard` with your GitHub username and the name of your GitHub repository. Also, make sure to provide instructions for setting up the environment variables and Google Sheets API credentials.

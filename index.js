@@ -51,7 +51,7 @@ async function authSheets() {
     };
 }
 
-app.get("/leaderboard", async (req, res) => {
+app.post("/leaderboard", async (req, res) => {
     try {
         const { sheets } = await authSheets();
 
@@ -118,7 +118,7 @@ app.get("/leaderboard", async (req, res) => {
     }
 });
 
-app.get("/group-scores", async (req, res) => {
+app.post("/group-scores", async (req, res) => {
     try {
         const { sheets } = await authSheets();
 

@@ -55,6 +55,13 @@ app.get("/leaderboard", async (req, res) => {
     try {
         const { sheets } = await authSheets();
 
+        // Check if the secret key is provided in the request body
+        const { secret } = req.body;
+        if (secret !== process.env.API_SECRET) {
+            // If the provided secret key doesn't match, return an unauthorized response
+            return res.status(401).json({ error: "Unauthorized" });
+        }
+
         // Specify the columns you want to retrieve (A, B, G, H, I, J, and K)
         const range = "leaderboard";
 

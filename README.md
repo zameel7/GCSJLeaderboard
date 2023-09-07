@@ -123,6 +123,7 @@ To run the API, create a `.env` file in the root directory of the project and ad
 
 ```env
 SHEET_ID=your_google_sheets_sheet_id
+API_SECRET=your_security_key
 TYPE=service_account
 PROJECT_ID=your_project_id
 PRIVATE_KEY_ID=private_key_id

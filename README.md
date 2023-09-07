@@ -1,5 +1,7 @@
 # Google Cloud Study Jam Cohort 1 Leaderboard API
 
+![GitHub](https://img.shields.io/github/license/zameel7/GCSJLeaderboard)
+
 ## Overview
 
 This API provides leaderboard data for the Google Cloud Study Jam Cohort 1 conducted from September 6, 2023, to October 2, 2023. It retrieves and formats data from Google Sheets to display the scores and progress of participants in the study jam.

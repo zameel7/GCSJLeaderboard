@@ -67,6 +67,10 @@ app.get("/leaderboard", async (req, res) => {
             range: range,
         });
 
+        console.log("---------------------------------");
+        console.log("Rows: ",getRows);
+        console.log("---------------------------------");
+
         // Process the data and transform it into the desired format
         const transformedData = getRows.data.values.slice(1).map((row) => {
             const [
@@ -111,7 +115,7 @@ app.get("/leaderboard", async (req, res) => {
 
         res.json(transformedData);
     } catch (error) {
-        console.error("Error:", error);
+        console.error("Error in transforming data:", error);
         res.status(500).send("Internal Server Error");
     }
 });

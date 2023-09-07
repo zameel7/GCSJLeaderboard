@@ -15,6 +15,7 @@ This API provides leaderboard data for the Google Cloud Study Jam Cohort 1 condu
   - [Installation](#installation)
 - [Usage](#usage)
   - [API Endpoints](#api-endpoints)
+  - [Example Requests](#example-requests)
 - [Configuration](#configuration)
   - [Environment Variables](#environment-variables)
   - [Google Sheets Credentials](#google-sheets-credentials)
@@ -101,6 +102,26 @@ Example Request:
       // ...
     ]
     ```
+
+### Example Requests
+
+**Leaderboard Endpoint**:
+
+Retrieve the leaderboard data for individual participants.
+
+```bash
+curl -X GET -H "Content-Type: application/json" -d '{"secret":<API_SECRET>}' http://localhost:8080/leaderboard
+```
+
+**Group Scores Endpoint**:
+
+Retrieve the scores of groups in the Google Cloud Study Jam Cohort 1.
+
+```bash
+curl -X GET -H "Content-Type: application/json" -d '{"secret":<API_SECRET>}' http://localhost:8080/group-scores
+```
+
+These CURL requests are for local testing. Replace `http://localhost:8080` with the actual URL where your API is hosted if you are deploying it to a remote server.
 
 ## Configuration
 

@@ -15,7 +15,7 @@ This API provides leaderboard data for the Google Cloud Study Jam Cohort 1 condu
   - [Installation](#installation)
 - [Usage](#usage)
   - [API Endpoints](#api-endpoints)
-  - [Example Requests](#example-requests)
+  - [Example Requests](#example-curl-requests)
 - [Configuration](#configuration)
   - [Environment Variables](#environment-variables)
   - [Google Sheets Credentials](#google-sheets-credentials)
@@ -58,6 +58,14 @@ This API provides leaderboard data for the Google Cloud Study Jam Cohort 1 condu
    GET /leaderboard
    ```
 
+   To authenticate, include the secret key in the request body as JSON:
+
+   ```json
+   {
+      "secret": "YOUR_API_SECRET"
+   }
+   ```
+
    Example Response:
 
    ```json
@@ -87,6 +95,14 @@ Example Request:
     GET /group-scores
     ```
 
+    To authenticate, include the secret key in the request body as JSON:
+
+    ```json
+    {
+       "secret": "YOUR_API_SECRET"
+    }
+    ```
+
     Example Response:
 
     ```json
@@ -103,25 +119,25 @@ Example Request:
     ]
     ```
 
-### Example Requests
+### Example CURL Requests
 
-**Leaderboard Endpoint**:
+- **Leaderboard Endpoint**:
 
-Retrieve the leaderboard data for individual participants.
+  Retrieve the leaderboard data for individual participants.
 
-```bash
-curl -X GET -H "Content-Type: application/json" -d '{"secret":<API_SECRET>}' http://localhost:8080/leaderboard
-```
+  ```bash
+  curl -X GET -H "Content-Type: application/json" -d '{"secret":<API_SECRET>}' http://localhost:8080/leaderboard
+  ```
 
-**Group Scores Endpoint**:
+- **Group Scores Endpoint**:
 
-Retrieve the scores of groups in the Google Cloud Study Jam Cohort 1.
+  Retrieve the scores of groups in the Google Cloud Study Jam Cohort 1.
 
-```bash
-curl -X GET -H "Content-Type: application/json" -d '{"secret":<API_SECRET>}' http://localhost:8080/group-scores
-```
+  ```bash
+  curl -X GET -H "Content-Type: application/json" -d '{"secret":<API_SECRET>}' http://localhost:8080/group-scores
+  ```
 
-These CURL requests are for local testing. Replace `http://localhost:8080` with the actual URL where your API is hosted if you are deploying it to a remote server.
+> These CURL requests are for local testing. Replace `http://localhost:8080` with the actual URL where your API is hosted if you are deploying it to a remote server.
 
 ## Configuration
 

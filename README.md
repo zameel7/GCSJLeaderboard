@@ -85,7 +85,7 @@ This API provides leaderboard data for the Google Cloud Study Jam Cohort 1 condu
    Example Request:
 
    ```http
-   GET /leaderboard
+   POST /leaderboard
    ```
 
    To authenticate, include the secret key in the request body as JSON:
@@ -122,7 +122,7 @@ This API provides leaderboard data for the Google Cloud Study Jam Cohort 1 condu
 Example Request:
 
     ```http
-    GET /group-scores
+    POST /group-scores
     ```
 
     To authenticate, include the secret key in the request body as JSON:

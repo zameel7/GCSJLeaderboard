@@ -62,7 +62,7 @@ This API provides leaderboard data for the Google Cloud Study Jam Cohort 1 condu
 
   ```json
   {
-    "message": "Welcome to the Google Cloud Study Jam Cohort 1 API!",
+    "message": "Google Cloud Study Jam Leaderboard API!",
     "endpoints": [
       {
         "name": "Leaderboard",

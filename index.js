@@ -59,12 +59,12 @@ app.get("/", (req, res) => {
     const acceptHeader = req.headers.accept;
 
     const responseData = {
-        message: "Welcome to the Google Cloud Study Jam Cohort 1 API!",
+        message: "Google Cloud Study Jam Leaderboard API!",
         endpoints: [
           {
             name: "Leaderboard",
             description: "Retrieve the leaderboard data.",
-            method: "GET",
+            method: "POST",
             path: "/leaderboard"
           },
           {
@@ -80,7 +80,7 @@ app.get("/", (req, res) => {
       <!DOCTYPE html>
       <html>
       <head>
-        <title>Google Cloud Study Jam Cohort 1 API</title>
+        <title>Google Cloud Study Jam Leaderboard API</title>
         <style>
           body {
             font-family: Arial, sans-serif;
@@ -132,7 +132,7 @@ app.get("/", (req, res) => {
     `;
   
     // Check if the Accept header indicates JSON
-    if (acceptHeader && !acceptHeader.includes("text/html")) {
+    if (acceptHeader && acceptHeader.includes("application/json")) {
         // Respond with JSON if the request wants JSON
         res.json(responseData);
     } else {

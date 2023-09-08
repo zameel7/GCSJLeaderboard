@@ -50,6 +50,36 @@ This API provides leaderboard data for the Google Cloud Study Jam Cohort 1 condu
 
 ### API Endpoints
 
+- `/`: This root endpoint provides an overview of available endpoints and how to use them. You can access this endpoint to understand how to interact with the API and explore other available options.
+
+  Example Request:
+
+  ```http
+  GET /
+  ```
+
+  Example Response:
+
+  ```json
+  {
+    "message": "Welcome to the Google Cloud Study Jam Cohort 1 API!",
+    "endpoints": [
+      {
+        "name": "Leaderboard",
+        "description": "Retrieve the leaderboard data.",
+        "method": "GET",
+        "path": "/leaderboard"
+      },
+      {
+        "name": "Group Scores",
+        "description": "Retrieve group-wise scores.",
+        "method": "POST",
+        "path": "/group-scores"
+      }
+    ]
+  }
+  ```
+
 - `/leaderboard`: Retrieve the leaderboard data for the Google Cloud Study Jam Cohort 1. The data includes participant names, scores, completion status, and more.
 
    Example Request:

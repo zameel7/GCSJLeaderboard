@@ -77,58 +77,77 @@ app.get("/", (req, res) => {
     };
 
     const htmlContent = `
-      <!DOCTYPE html>
-      <html>
-      <head>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Google Cloud Study Jam Leaderboard API</title>
+        <!-- Include Bootstrap 4 CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <!-- Include Font Awesome CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
         <style>
-          body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            display: flex;
-            margin: 0;
-            padding: 0;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-          }
-          .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-          }
-          h1 {
-            color: #333;
-          }
-          p {
-            font-size: 18px;
-          }
-          ul {
-            list-style-type: square;
-          }
+            body {
+                background-color: #f0f0f0;
+            }
+            .container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+            }
+            .card {
+                background-color: #fff;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+            .card-title {
+                color: #333;
+            }
+            .list-group-item {
+                border: none;
+                padding-left: 0;
+            }
+            .github-link {
+                text-align: center;
+            }
         </style>
-      </head>
-      <body>
-        <div class="container">
-          <h1>Google Cloud Study Jam Leaderboard API!</h1>
-          <p>Here are the available endpoints:</p>
-          <ul>
-            <li>
-              <strong>Leaderboard:</strong> Retrieve the leaderboard data.
-              <br>Method: POST
-              <br>Path: /leaderboard
-            </li>
-            <li>
-              <strong>Group Scores:</strong> Retrieve group-wise scores.
-              <br>Method: POST
-              <br>Path: /group-scores
-            </li>
-          </ul>
+    </head>
+    <body>
+        <div class="container mt-5">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="card-title">Google Cloud Study Jam Leaderboard API</h1>
+                    <p class="card-text">Here are the available endpoints:</p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <strong>Leaderboard:</strong> Retrieve the leaderboard data.
+                            <br>Method: POST
+                            <br>Path: /leaderboard
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Group Scores:</strong> Retrieve group-wise scores.
+                            <br>Method: POST
+                            <br>Path: /group-scores
+                        </li>
+                    </ul>
+                    <div>
+                        <p class="text-center text-muted">Go through the README in GitHub for more details</p>
+                    </div>
+                    <div class="mt-4 github-link">
+                        <a href="https://github.com/zameel7/GCSJLeaderboard" class="btn btn-dark" target="_blank">
+                            <i class="fab fa-github"></i> GitHub Repository (zameel7/GCSJLeaderboard)
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-      </body>
-      </html>
+    
+        <!-- Include Bootstrap 4 JS and jQuery (optional) -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+    </body>
+    </html>    
     `;
 
     // Check if the Accept header indicates JSON

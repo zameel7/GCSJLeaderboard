@@ -143,14 +143,14 @@ app.get("/", (req, res) => {
 
 app.post("/leaderboard", async (req, res) => {
     try {
-        const { sheets } = await authSheets();
-
         // Check if the secret key is provided in the request body
         const { secret } = req.body;
         if (secret !== process.env.API_SECRET) {
             // If the provided secret key doesn't match, return an unauthorized response
             return res.status(401).json({ error: "Unauthorized" });
         }
+
+        const { sheets } = await authSheets();
 
         // Specify the columns you want to retrieve (A, B, G, H, I, J, and K)
         const range = "leaderboard";
@@ -210,14 +210,14 @@ app.post("/leaderboard", async (req, res) => {
 
 app.post("/group-scores", async (req, res) => {
     try {
-        const { sheets } = await authSheets();
-
         // Check if the secret key is provided in the request body
         const { secret } = req.body;
         if (secret !== process.env.API_SECRET) {
             // If the provided secret key doesn't match, return an unauthorized response
             return res.status(401).json({ error: "Unauthorized" });
         }
+        
+        const { sheets } = await authSheets();
 
         // Specify the columns you want to retrieve, including the "Group" column
         const range = "leaderboard";

@@ -61,20 +61,20 @@ app.get("/", (req, res) => {
     const responseData = {
         message: "Google Cloud Study Jam Leaderboard API!",
         endpoints: [
-          {
-            name: "Leaderboard",
-            description: "Retrieve the leaderboard data.",
-            method: "POST",
-            path: "/leaderboard"
-          },
-          {
-            name: "Group Scores",
-            description: "Retrieve group-wise scores.",
-            method: "POST",
-            path: "/group-scores"
-          }
-        ]
-      };
+            {
+                name: "Leaderboard",
+                description: "Retrieve the leaderboard data.",
+                method: "POST",
+                path: "/leaderboard",
+            },
+            {
+                name: "Group Scores",
+                description: "Retrieve group-wise scores.",
+                method: "POST",
+                path: "/group-scores",
+            },
+        ],
+    };
 
     const htmlContent = `
       <!DOCTYPE html>
@@ -130,7 +130,7 @@ app.get("/", (req, res) => {
       </body>
       </html>
     `;
-  
+
     // Check if the Accept header indicates JSON
     if (acceptHeader && acceptHeader.includes("application/json")) {
         // Respond with JSON if the request wants JSON
@@ -139,7 +139,7 @@ app.get("/", (req, res) => {
         // Respond with HTML (for browsers or other unsupported clients)
         res.send(htmlContent);
     }
-  });
+});
 
 app.post("/leaderboard", async (req, res) => {
     try {

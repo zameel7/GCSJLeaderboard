@@ -139,7 +139,7 @@ app.get("/", (req, res) => {
         // Respond with HTML (for browsers or other unsupported clients)
         res.send(htmlContent);
     }
-  });  
+  });
 
 app.post("/leaderboard", async (req, res) => {
     try {

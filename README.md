@@ -12,6 +12,7 @@ This API provides leaderboard data for the Google Cloud Study Jam Cohort 1 condu
 
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
+  - [Structure of Google Sheet](#structure-of-google-sheet)
   - [Installation](#installation)
 - [Usage](#usage)
   - [API Endpoints](#api-endpoints)
@@ -30,6 +31,28 @@ This API provides leaderboard data for the Google Cloud Study Jam Cohort 1 condu
 - npm (Node Package Manager)
 - Google Sheets API Credentials
 - `.env` File
+- Google Sheet with progress of participants
+
+### Structure of Google Sheet
+
+- The following columns are present in the Google Sheets document used for the leaderboard:
+
+  | Column Name                           | Description                                            |
+  |---------------------------------------|--------------------------------------------------------|
+  | Student Name                          | Name of the participant                                |
+  | Student Email                         | Email address of the participant                      |
+  | Institution                           | Institution or organization associated with the participant |
+  | Enrolment Date & Time                | Date and time when the participant enrolled           |
+  | Enrolment Status                      | Status of the enrolment (e.g., enrolled, not enrolled) |
+  | Google Cloud Skills Boost Profile URL | URL to the participant's Google Cloud Skills Boost profile |
+  | # of Courses Completed                | Number of courses completed by the participant         |
+  | # of Skill Badges Completed           | Number of skill badges completed by the participant    |
+  | # of GenAI Game Completed             | Number of GenAI game completed by the participant      |
+  | Total Completions of both Pathways    | Total completions achieved across both pathways        |
+  | Redemption Status                     | Status of redemption (e.g., Yes, No)                    |
+  | Group                                 | Group affiliation of the participant                   |
+
+  > Group was additionally added apart from the progress provided by Google just to split up participants into different teams.
 
 ### Installation
 
@@ -67,7 +90,7 @@ This API provides leaderboard data for the Google Cloud Study Jam Cohort 1 condu
       {
         "name": "Leaderboard",
         "description": "Retrieve the leaderboard data.",
-        "method": "GET",
+        "method": "POST",
         "path": "/leaderboard"
       },
       {
@@ -156,7 +179,7 @@ Example Request:
   Retrieve the leaderboard data for individual participants.
 
   ```bash
-  curl -X GET -H "Content-Type: application/json" -d '{"secret":<API_SECRET>}' http://localhost:8080/leaderboard
+  curl -X POST -H "Content-Type: application/json" -d '{"secret":<API_SECRET>}' http://localhost:8080/leaderboard
   ```
 
 - **Group Scores Endpoint**:
@@ -164,7 +187,7 @@ Example Request:
   Retrieve the scores of groups in the Google Cloud Study Jam Cohort 1.
 
   ```bash
-  curl -X GET -H "Content-Type: application/json" -d '{"secret":<API_SECRET>}' http://localhost:8080/group-scores
+  curl -X POST -H "Content-Type: application/json" -d '{"secret":<API_SECRET>}' http://localhost:8080/group-scores
   ```
 
 > These CURL requests are for local testing. Replace `http://localhost:8080` with the actual URL where your API is hosted if you are deploying it to a remote server.

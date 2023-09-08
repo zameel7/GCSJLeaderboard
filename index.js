@@ -90,6 +90,7 @@ app.get("/", (req, res) => {
         <style>
             body {
                 background-color: #f0f0f0;
+                font-family: "Google Sans", sans-serif;
             }
             .container {
                 display: flex;
@@ -104,6 +105,9 @@ app.get("/", (req, res) => {
             .card-title {
                 color: #333;
             }
+            .card-title span {
+                margin-left: -10px;
+            }
             .list-group-item {
                 border: none;
                 padding-left: 0;
@@ -117,22 +121,30 @@ app.get("/", (req, res) => {
         <div class="container mt-5">
             <div class="card">
                 <div class="card-body">
-                    <h1 class="card-title">Google Cloud Study Jam Leaderboard API</h1>
-                    <p class="card-text">Here are the available endpoints:</p>
+                    <h1 class="card-title">
+                        <span style="color: #4285F4;">G</span>
+                        <span style="color: #0F9D58;">o</span>
+                        <span style="color: #F4B400;">o</span>
+                        <span style="color: #DB4437;">g</span>
+                        <span style="color: #4285F4;">l</span>
+                        <span style="color: #0F9D58;">e</span>
+                        Cloud Study Jam Leaderboard API
+                    </h1>
+                    <p class="card-text text-center "><u>Here are the available endpoints:</u></p>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">
                             <strong>Leaderboard:</strong> Retrieve the leaderboard data.
-                            <br>Method: POST
-                            <br>Path: /leaderboard
+                            <br>Method: <em>POST</em>
+                            <br>Path: <em>/leaderboard</em>
                         </li>
                         <li class="list-group-item">
                             <strong>Group Scores:</strong> Retrieve group-wise scores.
-                            <br>Method: POST
-                            <br>Path: /group-scores
+                            <br>Method: <em>POST</em>
+                            <br>Path: <em>/group-scores</em>
                         </li>
                     </ul>
-                    <div>
-                        <p class="text-center text-muted">Go through the README in GitHub for more details</p>
+                    <div class="text-center text-muted">
+                        <small>Go through the README in GitHub for more details</small>
                     </div>
                     <div class="mt-4 github-link">
                         <a href="https://github.com/zameel7/GCSJLeaderboard" class="btn btn-dark" target="_blank">

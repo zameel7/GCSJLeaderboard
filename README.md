@@ -1,4 +1,4 @@
-# Google Cloud Study Jam Cohort 1 Leaderboard API
+# Google Cloud Study Jam Leaderboard API
 
 ![GitHub](https://img.shields.io/github/license/zameel7/GCSJLeaderboard)
 

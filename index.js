@@ -185,8 +185,8 @@ app.post("/leaderboard", async (req, res) => {
                 parseInt(genAIGameCompleted);
 
             // Determine if the person is finished and has redeemed
-            const isFinished = redemptionStatus === "Yes";
-            const hasRedeemed = totalCompletion === "Yes";
+            const isFinished = totalCompletion === "Yes";
+            const hasRedeemed = redemptionStatus === "Yes";
 
             return {
                 name,
